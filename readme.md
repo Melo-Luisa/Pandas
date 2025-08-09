@@ -13,3 +13,9 @@
 <ul>mean - fazer a media dos dados</ul>
 <li>Criamos novos DataFrame para exemplos</li>
 <li>Alteramos type of data, como int para float</li>
+
+
+<h3>Day 3 - Crie Gráficos e conte histórias com Dados</h3>
+<li>Adicionamos 3 bibliotecas novas</li>
+<li>Criamos 3 tipos de gráficos</li>
+<li>Analisamos os gráficos</li>
