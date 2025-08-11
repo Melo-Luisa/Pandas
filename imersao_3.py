@@ -81,89 +81,89 @@ AULA 3 - criandoo gráficos e contando histórias
 Lembrete: no vscode devemos baicar o matplotlib e seaborn
 Neles sempre devemos usar o plt.show() para geração de gráficos
 '''
-# df_limpo['senioridade'].value_counts().plot(kind='bar', title='Distribuição de Senioridade')
-# sns.barplot(data=df_limpo, x='senioridade', y='usd')
-# plt.show()
+df_limpo['senioridade'].value_counts().plot(kind='bar', title='Distribuição de Senioridade')
+sns.barplot(data=df_limpo, x='senioridade', y='usd')
+plt.show()
 
 #vamos organizar a tabela acima com matplolib
-# plt.figure(figsize=(10,5))
-# sns.barplot(data=df_limpo, x='senioridade', y='usd')
-# plt.title("Salario médio por senioridade")
-# plt.xlabel("Senioridade")
-# plt.ylabel("Salário médio anual (USD)")
-# plt.show()
+plt.figure(figsize=(10,5))
+sns.barplot(data=df_limpo, x='senioridade', y='usd')
+plt.title("Salario médio por senioridade")
+plt.xlabel("Senioridade")
+plt.ylabel("Salário médio anual (USD)")
+plt.show()
 
 #chamando a tabela de senioridade do menor para o maior, sendo a média dos salarios, o index trazendo apenas os títulos
 ordem = df_limpo.groupby('senioridade')['usd'].mean().sort_values(ascending=False).index #lembrando que o ascending é a ordem crescente ou decrescente
 # print(ordem)
 
 #novo gráfico dessa ordem
-# plt.figure(figsize=(10,5))
-# sns.barplot(data=df_limpo, x='senioridade', y='usd', order=ordem)
-# plt.title("Salario médio por senioridade")
-# plt.xlabel("Senioridade")
-# plt.ylabel("Salário médio anual (USD)")
-# plt.show()
+plt.figure(figsize=(10,5))
+sns.barplot(data=df_limpo, x='senioridade', y='usd', order=ordem)
+plt.title("Salario médio por senioridade")
+plt.xlabel("Senioridade")
+plt.ylabel("Salário médio anual (USD)")
+plt.show()
 
 #mais uma análise, gráfico em histplot - histograma
-# plt.figure(figsize=(10,5))
-# sns.histplot(df_limpo['usd'], bins=50,kde=True)
-# plt.title("Distribuição de salários anuais")
-# plt.xlabel("Salario em USD")
-# plt.ylabel("Frequencia")
-# plt.show()
+plt.figure(figsize=(10,5))
+sns.histplot(df_limpo['usd'], bins=50,kde=True)
+plt.title("Distribuição de salários anuais")
+plt.xlabel("Salario em USD")
+plt.ylabel("Frequencia")
+plt.show()
 
 #gráfico boxplot - interessante para estatistica
-# plt.figure(figsize=(8,5))
-# sns.boxplot(x=df_limpo['usd'])
-# plt.title("Boxplot Salário")
-# plt.xlabel("Salário em USD")
-# plt.show()
+plt.figure(figsize=(8,5))
+sns.boxplot(x=df_limpo['usd'])
+plt.title("Boxplot Salário")
+plt.xlabel("Salário em USD")
+plt.show()
 
 #juntando categorias
-# ordem_senioridade = ['Junior', 'Pleno', 'Senior', 'Executivo']
-# plt.figure(figsize=(8,5))
-# sns.boxplot(x='senioridade', y='usd', data=df_limpo, order=ordem_senioridade, palette='Set2', hue='senioridade') #trazendo cores
-# plt.title("Boxplot Distribuição por Senioridade")
-# plt.xlabel("Salário em USD")
-# plt.show()
+ordem_senioridade = ['Junior', 'Pleno', 'Senior', 'Executivo']
+plt.figure(figsize=(8,5))
+sns.boxplot(x='senioridade', y='usd', data=df_limpo, order=ordem_senioridade, palette='Set2', hue='senioridade') #trazendo cores
+plt.title("Boxplot Distribuição por Senioridade")
+plt.xlabel("Salário em USD")
+plt.show()
 
 #Usando gráficos INTERATIVOS
 
-# senioridade_media_salario = df_limpo.groupby('senioridade')['usd'].mean().sort_values(ascending=False).reset_index()
+senioridade_media_salario = df_limpo.groupby('senioridade')['usd'].mean().sort_values(ascending=False).reset_index()
 
-# fig = px.bar(senioridade_media_salario,
-#              x='senioridade',
-#              y='usd',
-#              title='Média Salarial por Senioridade',
-#              labels={'senioridade': 'Nível de Senioridade', 'usd': 'Média Salarial Anual (USD)'})
+fig = px.bar(senioridade_media_salario,
+             x='senioridade',
+             y='usd',
+             title='Média Salarial por Senioridade',
+             labels={'senioridade': 'Nível de Senioridade', 'usd': 'Média Salarial Anual (USD)'})
 
-# fig.show()
+fig.show()
 
 #Grafico estilo pizza/torta
-# remoto_contagem= df_limpo['remoto'].value_counts().reset_index()
-# remoto_contagem.columns = ['Tipo de trabalho', 'quantidade']
+remoto_contagem= df_limpo['remoto'].value_counts().reset_index()
+remoto_contagem.columns = ['Tipo de trabalho', 'quantidade']
 
-# fig = px.pie(remoto_contagem,
-#              names='Tipo de trabalho',
-#              values='quantidade',
-#              title='Proporção dos tipos de trabalho'
-#              )
+fig = px.pie(remoto_contagem,
+             names='Tipo de trabalho',
+             values='quantidade',
+             title='Proporção dos tipos de trabalho'
+             )
 
-# fig.show()
+fig.show()
 
 #grafico estilo rosca
-# remoto_contagem= df_limpo['remoto'].value_counts().reset_index()
-# remoto_contagem.columns = ['Tipo de trabalho', 'quantidade']
+remoto_contagem= df_limpo['remoto'].value_counts().reset_index()
+remoto_contagem.columns = ['Tipo de trabalho', 'quantidade']
 
-# fig = px.pie(remoto_contagem,
-#              names='Tipo de trabalho',
-#              values='quantidade',
-#              title='Proporção dos tipos de trabalho',
-#              hole=0.5
-#              )
+fig = px.pie(remoto_contagem,
+             names='Tipo de trabalho',
+             values='quantidade',
+             title='Proporção dos tipos de trabalho',
+             hole=0.5
+             )
 
-# fig.show()
+fig.show()
      
 #Melhorando leitura do Gráfico de Rosca
 
