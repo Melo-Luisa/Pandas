@@ -19,3 +19,16 @@
 <li>Adicionamos 3 bibliotecas novas</li>
 <li>Criamos 3 tipos de gráficos</li>
 <li>Analisamos os gráficos</li>
+
+<h3>Day 4 - Criando Dashboard</h3>
+<p>Um dos dias mais cheios de informações e complexo já visto, em minha opinião, em uma imersão da Alura</p>
+<li>Criação de um dashboard</li>
+<li>Importação de bibliotecas como streamlit</li><strong>Nossa base para hospedar e rodar o dash na web ou em localhost</strong>
+<li>Manipulação de gráficos já filtrados conforme vimos nas imersões 2 e 3</li>
+<li>Uso de envirment para rodar o dash</li>
+
+<Strong>Tips:</Strong>
+<li>O uso do Streamlit foi essencial uma vez que na hospedagem no site o github pages não pode fazer isso. Pois no Github pages é necessário que tenho o HTML e no python os markdown são diferentes.</li>
+
+<p>Digo isso, segue link da nossa primeira dash criada</p>
+<a href="https://pandas-imersao-2025.streamlit.app/">Link</a>
