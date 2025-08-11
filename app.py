@@ -154,3 +154,4 @@ Desenvolvido por <b>Luisa Melo</b> 💻 | Imersão Alura - Dados com Python
 """, unsafe_allow_html=True)
 
 
+df_filtrado.to_csv('dados-imersao-final.csv', index=False)
